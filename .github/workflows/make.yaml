@@ -31,7 +31,7 @@ jobs:
     needs: [list-flavors]
     with:
       flavor_name: ${{ matrix.flavor_name }}
-      image_repo: 'ghcr.io/qcdis/n-a-a-vre'
+      image_repo: 'ghcr.io/qcdis/naavre'
       image_version: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
       naavre_version: 'v2.3.3-beta'
     strategy:
