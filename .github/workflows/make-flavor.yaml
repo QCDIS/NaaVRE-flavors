@@ -1,0 +1,65 @@
+name: Make flavor
+
+on:
+  workflow_call:
+    inputs:
+      flavor_name:
+        description: 'NaaVRE flavor name'
+        type: string
+        required: true
+      image_repo:
+        description: 'Docker image repo'
+        type: string
+        required: true
+      image_version:
+        description: 'Docker image version'
+        type: string
+        required: true
+      naavre_version:
+        description: 'NaaVRE base image version'
+        type: string
+        required: true
+
+jobs:
+  build-naavre-cell:
+    uses: ./.github/workflows/build-image.yaml
+    with:
+      dockerfile: naavre-cell.Dockerfile
+      flavor_dir: './flavors/${{ inputs.flavor_name }}'
+      image_name: naavre-cell-${{ inputs.flavor_name }}
+      image_repo: ${{ inputs.image_repo }}
+      image_version: ${{ inputs.image_version }}
+
+  build-naavre-jupyter:
+    uses: ./.github/workflows/build-image.yaml
+    with:
+      dockerfile: naavre-jupyter.Dockerfile
+      flavor_dir: './flavors/${{ inputs.flavor_name }}'
+      image_name: naavre-jupyter-${{ inputs.flavor_name }}
+      image_repo: ${{ inputs.image_repo }}
+      image_version: ${{ inputs.naavre_version }}-${{ inputs.image_version }}
+      naavre_version: ${{ inputs.naavre_version }}
+
+  test:
+    uses: ./.github/workflows/test-naavre-cell.yaml
+    needs: [build-naavre-cell]
+    with:
+      image_name: naavre-cell-${{ inputs.flavor_name }}
+      image_repo: ${{ inputs.image_repo }}
+      tests_dir: './flavors/${{ inputs.flavor_name }}/tests/'
+
+  push-naavre-cell:
+    uses: ./.github/workflows/push-image.yaml
+    needs: [build-naavre-cell, test]
+    with:
+      image_name: naavre-cell-${{ inputs.flavor_name }}
+      image_repo: ${{ inputs.image_repo }}
+    if: ${{ github.event_name == 'release' }}
+
+  push-naavre-jupyter:
+    uses: ./.github/workflows/push-image.yaml
+    needs: [build-naavre-jupyter, test]
+    with:
+      image_name: naavre-jupyter-${{ inputs.flavor_name }}
+      image_repo: ${{ inputs.image_repo }}
+    if: ${{ github.event_name == 'release' }}

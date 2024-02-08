@@ -1,0 +1,39 @@
+name: Make
+
+on:
+  release:
+    types: [published]
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+  schedule:
+    - cron: '0 4 5,25 * *'
+
+jobs:
+  list-flavors:
+    name: List flavors
+    runs-on: ubuntu-latest
+    outputs:
+      flavors: ${{ steps.list-flavors.outputs.flavors }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: list-flavors
+        name: List flavors
+        run: |
+          flavors=$(find ./flavors -mindepth 1 -maxdepth 1 -type d | jq -Rsc 'split("\n")[:-1] | map(split("/")[-1])')
+          echo "flavors=$flavors" | tee -a $GITHUB_OUTPUT
+
+  flavors:
+    name: Flavor ${{ matrix.flavor_name }}
+    uses: ./.github/workflows/make-flavor.yaml
+    needs: [list-flavors]
+    with:
+      flavor_name: ${{ matrix.flavor_name }}
+      image_repo: 'ghcr.io/qcdis/n-a-a-vre'
+      image_version: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
+      naavre_version: 'v2.3.3-beta'
+    strategy:
+      matrix:
+        flavor_name: ${{ fromJson(needs.list-flavors.outputs.flavors) }}
