@@ -59,8 +59,8 @@ jobs:
           context: .
           file: docker/cell-test.Dockerfile
           build-args: |
-            BUILD_IMAGE=${{ inputs.image_name_build }}
-            RUNTIME_IMAGE=${{ inputs.image_name_runtime }}
+            BUILD_IMAGE=${{ inputs.image_repo }}/${{ inputs.image_name_build }}
+            RUNTIME_IMAGE=${{ inputs.image_repo }}/${{ inputs.image_name_runtime }}
           tags: cell_test
           cache-from: type=gha
           cache-to: type=gha,mode=min
