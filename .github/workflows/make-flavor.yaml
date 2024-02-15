@@ -21,12 +21,21 @@ on:
         required: true
 
 jobs:
-  build-naavre-cell:
+  build-naavre-cell-build:
     uses: ./.github/workflows/build-image.yaml
     with:
-      dockerfile: naavre-cell.Dockerfile
+      dockerfile: naavre-cell-build.Dockerfile
       flavor_dir: './flavors/${{ inputs.flavor_name }}'
-      image_name: naavre-cell-${{ inputs.flavor_name }}
+      image_name: naavre-cell-build-${{ inputs.flavor_name }}
+      image_repo: ${{ inputs.image_repo }}
+      image_version: ${{ inputs.image_version }}
+
+  build-naavre-cell-runtime:
+    uses: ./.github/workflows/build-image.yaml
+    with:
+      dockerfile: naavre-cell-runtime.Dockerfile
+      flavor_dir: './flavors/${{ inputs.flavor_name }}'
+      image_name: naavre-cell-runtime-${{ inputs.flavor_name }}
       image_repo: ${{ inputs.image_repo }}
       image_version: ${{ inputs.image_version }}
 
@@ -42,17 +51,26 @@ jobs:
 
   test:
     uses: ./.github/workflows/test-naavre-cell.yaml
-    needs: [build-naavre-cell]
+    needs: [build-naavre-cell-build, build-naavre-cell-runtime]
     with:
-      image_name: naavre-cell-${{ inputs.flavor_name }}
+      image_name_build: naavre-cell-build-${{ inputs.flavor_name }}
+      image_name_runtime: naavre-cell-runtime-${{ inputs.flavor_name }}
       image_repo: ${{ inputs.image_repo }}
       tests_dir: './flavors/${{ inputs.flavor_name }}/tests/'
 
-  push-naavre-cell:
+  push-naavre-cell-build:
     uses: ./.github/workflows/push-image.yaml
-    needs: [build-naavre-cell, test]
+    needs: [build-naavre-cell-build, test]
     with:
-      image_name: naavre-cell-${{ inputs.flavor_name }}
+      image_name: naavre-cell-build-${{ inputs.flavor_name }}
+      image_repo: ${{ inputs.image_repo }}
+    if: ${{ github.event_name == 'release' }}
+
+  push-naavre-cell-runtime:
+    uses: ./.github/workflows/push-image.yaml
+    needs: [build-naavre-cell-runtime, test]
+    with:
+      image_name: naavre-cell-runtime-${{ inputs.flavor_name }}
       image_repo: ${{ inputs.image_repo }}
     if: ${{ github.event_name == 'release' }}
 

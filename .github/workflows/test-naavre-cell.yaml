@@ -3,8 +3,12 @@ name: Test cell base image
 on:
   workflow_call:
     inputs:
-      image_name:
-        description: 'Docker image name'
+      image_name_build:
+        description: 'Docker image name for build stage'
+        type: string
+        required: true
+      image_name_runtime:
+        description: 'Docker image name for runtime stage'
         type: string
         required: true
       image_repo:
@@ -35,6 +39,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build docker
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/cell-test.Dockerfile
+          build-args: |
+            BUILD_IMAGE=${{ inputs.image_name_build }}
+            RUNTIME_IMAGE=${{ inputs.image_name_runtime }}
+          tags: cell_test
+          cache-from: type=gha
+          cache-to: type=gha,mode=min
+
       - name: Run tests
         run: |
-          docker run -v ${{ inputs.tests_dir }}:/tests/ ${{ inputs.image_repo }}/${{ inputs.image_name }} /bin/sh /tests/tests.sh
+          docker run -v ${{ inputs.tests_dir }}:/tests/ cell_test /bin/sh /tests/tests.sh
