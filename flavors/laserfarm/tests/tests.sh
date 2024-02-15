@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 set -e
+source /venv/bin/activate
 dir="${0%/*}"
 find "$dir" -name "*.py" -print0 | xargs --null -I "{}" python "{}"

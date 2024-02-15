@@ -28,12 +28,23 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: ${{ inputs.image_name }}
+          name: ${{ inputs.image_name_build }}
+          path: /tmp
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.image_name_runtime }}
           path: /tmp
 
       - name: Load image
         run: |
-          docker load --input /tmp/${{ inputs.image_name }}.tar
+          docker load --input /tmp/${{ inputs.image_name_build }}.tar
+          docker image ls -a
+
+      - name: Load image
+        run: |
+          docker load --input /tmp/${{ inputs.image_name_runtime }}.tar
           docker image ls -a
 
       - name: Checkout
@@ -56,4 +67,4 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run -v ${{ inputs.tests_dir }}:/tests/ cell_test /bin/sh /tests/tests.sh
+          docker run -v ${{ inputs.tests_dir }}:/tests/ cell_test /bin/bash /tests/tests.sh
