@@ -23,7 +23,7 @@ jobs:
         name: List flavors
         run: |
           matrix=$(find ./flavors -mindepth 2 -maxdepth 2 -name 'flavor_config.yaml' | xargs yq ea -o=j -I=0 '[.]')
-          echo "matrix={\"include\":$(echo $matrix)}" >> $GITHUB_OUTPUT
+          echo "matrix={\"include\":$(echo $matrix)}" | tee -a $GITHUB_OUTPUT
 
   flavors:
     name: Flavor ${{ matrix.flavor_name }}
@@ -37,3 +37,26 @@ jobs:
       build_jupyter: ${{ matrix.build_jupyter }}
     strategy:
       matrix: ${{ fromJson(needs.list-flavors.outputs.matrix) }}
+
+  save-base-image-tags:
+    name: Save base image tags
+    runs-on: ubuntu-latest
+    needs: [flavors]
+    if: ${{ github.event_name == 'release' }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate base_image_tags.json
+        run: |
+          find ./flavors -mindepth 2 -maxdepth 2 -name 'flavor_config.yaml' | \
+            xargs yq ea -o=j '[.] | map({"key": .flavor_name, "value": {"build": "ghcr.io/qcdis/naavre/naavre-cell-build-" + .flavor_name + ":${{ github.ref_name }}", "runtime": "ghcr.io/qcdis/naavre/naavre-cell-" + .flavor_name + ":${{ github.ref_name }}"}}) | from_entries' \
+            | tee /tmp/base_image_tags.json
+
+      - name: Add base_image_tags.json to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: /tmp/base_image_tags.json
+          asset_name: base_image_tags.json
+          tag: ${{ github.ref }}
