@@ -16,14 +16,14 @@ jobs:
     name: List flavors
     runs-on: ubuntu-latest
     outputs:
-      flavors: ${{ steps.list-flavors.outputs.flavors }}
+      matrix: ${{ steps.list-flavors.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
       - id: list-flavors
         name: List flavors
         run: |
-          flavors=$(find ./flavors -mindepth 1 -maxdepth 1 -type d | jq -Rsc 'split("\n")[:-1] | map(split("/")[-1])')
-          echo "flavors=$flavors" | tee -a $GITHUB_OUTPUT
+          matrix=$(find ./flavors -mindepth 2 -maxdepth 2 -name 'flavor_config.yaml' | xargs yq ea -o=j -I=0 '[.]')
+          echo "matrix={\"include\":$(echo $matrix)}" >> $GITHUB_OUTPUT
 
   flavors:
     name: Flavor ${{ matrix.flavor_name }}
@@ -34,6 +34,6 @@ jobs:
       image_repo: 'ghcr.io/qcdis/naavre'
       image_version: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
       naavre_version: 'v2.3.3-beta'
+      build_jupyter: ${{ matrix.build_jupyter }}
     strategy:
-      matrix:
-        flavor_name: ${{ fromJson(needs.list-flavors.outputs.flavors) }}
+      matrix: ${{ fromJson(needs.list-flavors.outputs.matrix) }}

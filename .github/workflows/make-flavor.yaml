@@ -19,6 +19,10 @@ on:
         description: 'NaaVRE base image version'
         type: string
         required: true
+      build_jupyter:
+        description: 'Whether to build the NaaVRE Jupyter images'
+        type: boolean
+        required: true
 
 jobs:
   build-naavre-cell-build:
@@ -48,6 +52,7 @@ jobs:
       image_repo: ${{ inputs.image_repo }}
       image_version: ${{ inputs.naavre_version }}-${{ inputs.image_version }}
       naavre_version: ${{ inputs.naavre_version }}
+    if: ${{ inputs.build_jupyter }}
 
   test:
     uses: ./.github/workflows/test-naavre-cell.yaml
@@ -80,4 +85,4 @@ jobs:
     with:
       image_name: naavre-jupyter-${{ inputs.flavor_name }}
       image_repo: ${{ inputs.image_repo }}
-    if: ${{ github.event_name == 'release' }}
+    if: ${{ github.event_name == 'release' && inputs.build_jupyter }}
