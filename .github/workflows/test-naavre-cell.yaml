@@ -50,20 +50,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
       - name: Build docker
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: docker/cell-test.Dockerfile
-          build-args: |
-            BUILD_IMAGE=${{ inputs.image_repo }}/${{ inputs.image_name_build }}
-            RUNTIME_IMAGE=${{ inputs.image_repo }}/${{ inputs.image_name_runtime }}
-          tags: cell_test
-          cache-from: type=gha
-          cache-to: type=gha,mode=min
+        run: |
+          docker build \
+            . \
+            -f docker/cell-test.Dockerfile \
+            --build-arg BUILD_IMAGE=${{ inputs.image_repo }}/${{ inputs.image_name_build }} \
+            --build-arg RUNTIME_IMAGE=${{ inputs.image_repo }}/${{ inputs.image_name_runtime }} \
+            -t cell_test \
+            --cache-from type=gha \
+            --cache-to type=gha,mode=min \
 
       - name: Run tests
         run: |
