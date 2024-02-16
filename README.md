@@ -1,11 +1,11 @@
 # NaaVRE flavors
 
 NaaVRE flavors extend the base edition by adding extra dependencies and
-publishing two docker images:
+publishing three docker images:
 
-- `naavre-jupyter-myflavor`, the NaaVRE Jupyter Lab image, based on `qcdis/n-a-a-vre`
-- `naavre-cell-myflavor`, the NaaNaaVRE cell base image
-
+- `naavre-jupyter-myflavor`, the NaaVRE Jupyter Lab image, based on `qcdis/n-a-a-vre` (skipped `python` and `r` flavors). This is the image for the users Jupyter Lab instances, containing dependencies for notebook execution.
+- `naavre-cell-build-myflavor`, the base images for the `build` stage of NaaVRE cells. This image contains conda dependencies for containerized cells execution.
+- `naavre-cell-runtime-myflavor`, the base images for the `runtime` stage of NaaVRE cells. This image contains other dependencies (system, manually added, etc.) for containerized cells execution.
 
 Each flavor corresponds to a directory `./flavors/myflavor`, with the following
 structure:
