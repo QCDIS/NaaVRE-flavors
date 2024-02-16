@@ -13,6 +13,7 @@ structure:
 ```txt
 myflavor
 ├── environment.yaml              # Conda environment with `name: myflavor`
+├── flavor_config.yaml            # Build configuration
 ├── tests                         #
 │    └── tests.sh                 # Test script run in naavre-cell-myflavor
 ├── [naavre-cell.Dockerfile]      # Optional override to docker/naavre-cell.Dockerfile
