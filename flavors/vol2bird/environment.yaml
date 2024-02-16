@@ -1,0 +1,7 @@
+name: vol2bird
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - h5py
+  - bioconductor-rhdf5lib
