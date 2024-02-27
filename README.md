@@ -12,10 +12,11 @@ structure:
 
 ```txt
 myflavor
-├── environment.yaml              # Conda environment with `name: myflavor`
-├── flavor_config.yaml            # Build configuration
-├── tests                         #
-│    └── tests.sh                 # Test script run in naavre-cell-myflavor
-├── [naavre-cell.Dockerfile]      # Optional override to docker/naavre-cell.Dockerfile
-└── [naavre-jupyter.Dockerfile]   # Optional override to docker/naavre-jupyter.Dockerfile
+├── environment.yaml                  # Conda environment with `name: myflavor`
+├── flavor_config.yaml                # Build configuration
+├── tests                             #
+│    └── tests.sh                     # Test script run in naavre-cell-myflavor
+├── [naavre-cell-build.Dockerfile]    # Optional override to docker/naavre-cell-build.Dockerfile
+├── [naavre-cell-runtime.Dockerfile]  # Optional override to docker/naavre-cell-runtime.Dockerfile
+└── [naavre-jupyter.Dockerfile]       # Optional override to docker/naavre-jupyter.Dockerfile
 ```
