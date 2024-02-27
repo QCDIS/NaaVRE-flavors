@@ -29,7 +29,6 @@ ARG CONDA_ENV_FILE
 COPY ${CONDA_ENV_FILE} environment.yaml
 RUN mamba env create -f environment.yaml
 
-COPY --from=vol2bird /venv /venv
 COPY --from=vol2bird /opt/radar/ /opt/radar/
 COPY --from=vol2bird /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
 ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/radar/lib:/opt/radar/rave/lib:/opt/radar/rsl/lib:/opt/radar/vol2bird/lib:/usr/lib/x86_64-linux-gnu
