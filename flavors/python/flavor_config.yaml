@@ -1,2 +1,3 @@
 flavor_name: python
 build_jupyter: False
+free_disk_space: False

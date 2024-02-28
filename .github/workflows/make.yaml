@@ -35,6 +35,7 @@ jobs:
       image_version: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
       naavre_version: 'v2.4.0-alpha.1'
       build_jupyter: ${{ matrix.build_jupyter }}
+      free_disk_space: ${{ matrix.free_disk_space }}
     strategy:
       matrix: ${{ fromJson(needs.list-flavors.outputs.matrix) }}
 

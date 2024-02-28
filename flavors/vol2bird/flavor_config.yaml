@@ -1,2 +1,3 @@
 flavor_name: vol2bird
 build_jupyter: True
+free_disk_space: False
