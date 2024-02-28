@@ -11,6 +11,11 @@ on:
         description: 'Docker image repo'
         type: string
         required: true
+      free_disk_space:
+        description: 'Free disk space on the action runner before running jobs'
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   push:
@@ -27,6 +32,7 @@ jobs:
           large-packages: true
           docker-images: false
           swap-storage: true
+        if: ${{ inputs.free_disk_space }}
 
       - name: Download artifact
         uses: actions/download-artifact@v4
