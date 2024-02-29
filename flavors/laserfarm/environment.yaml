@@ -12,6 +12,7 @@ dependencies:
   - git
   - gitpython
   - html5lib
+  - ipykernel
   - ipywidgets
   - Jinja2
   - laspy
@@ -19,6 +20,7 @@ dependencies:
   - libgcc
   - libstdcxx-ng
   - matplotlib
+  - minio
   - notebook
   - numpy
   - pdal
