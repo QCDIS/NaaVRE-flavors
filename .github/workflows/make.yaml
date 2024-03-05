@@ -12,12 +12,19 @@ on:
     - cron: '0 4 5,25 * *'
 
 jobs:
-  list-flavors:
-    name: List flavors
+  configure-workflow:
+    name: Configure workflow
     runs-on: ubuntu-latest
     outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
       matrix: ${{ steps.list-flavors.outputs.matrix }}
     steps:
+      - id: skip_check
+        name: Configure skip-duplicate-actions
+        uses: fkirc/skip-duplicate-actions@v5
+        with:
+          paths_ignore: '["**/README.md"]'
+          do_not_skip: '["workflow_dispatch", "schedule", "release"]'
       - uses: actions/checkout@v4
       - id: list-flavors
         name: List flavors
@@ -28,7 +35,8 @@ jobs:
   flavors:
     name: Flavor ${{ matrix.flavor_name }}
     uses: ./.github/workflows/make-flavor.yaml
-    needs: [list-flavors]
+    needs: [configure-workflow]
+    if: needs.configure-workflow.outputs.should_skip != 'true'
     with:
       flavor_name: ${{ matrix.flavor_name }}
       image_repo: 'ghcr.io/qcdis/naavre'
@@ -37,7 +45,7 @@ jobs:
       build_jupyter: ${{ matrix.build_jupyter }}
       free_disk_space: ${{ matrix.free_disk_space }}
     strategy:
-      matrix: ${{ fromJson(needs.list-flavors.outputs.matrix) }}
+      matrix: ${{ fromJson(needs.configure-workflow.outputs.matrix) }}
 
   save-base-image-tags:
     name: Save base image tags
