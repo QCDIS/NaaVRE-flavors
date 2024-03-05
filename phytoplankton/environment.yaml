@@ -1,0 +1,14 @@
+name: lter-life-veluwe
+channels:
+  - conda-forge
+dependencies:
+  - r-irkernel
+  - r-jsonlite
+  - r-optparse
+  - r-aws.s3
+  - r-stringr
+  - r-dplyr
+  - r-reshape
+  - r-vegan
+  - r-fields
+  - r-dendextend
