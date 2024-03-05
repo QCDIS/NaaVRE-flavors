@@ -1,4 +1,4 @@
-name: lter-life-veluwe
+name: phytoplankton
 channels:
   - conda-forge
 dependencies:
