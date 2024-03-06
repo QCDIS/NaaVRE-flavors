@@ -30,6 +30,7 @@ dependencies:
   - python-pdal
   - python>=3.8
   - pyyaml
+  - rasterio
   - requests
   - scipy
   - sentinelhub
