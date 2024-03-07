@@ -5,6 +5,9 @@ COPY ${CONDA_ENV_FILE} environment.yaml
 RUN micromamba create -y -n venv -f environment.yaml && \
     micromamba clean --all --yes
 
+RUN micromamba install -y -n base -c conda-forge git
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+
 RUN \
     git clone --depth 1 https://github.com/acolite/acolite.git && \
     # Acolite doesn't run on Python 3.12 yet
