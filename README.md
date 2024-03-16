@@ -20,3 +20,39 @@ myflavor
 ├── [naavre-cell-runtime.Dockerfile]  # Optional override to docker/naavre-cell-runtime.Dockerfile
 └── [naavre-jupyter.Dockerfile]       # Optional override to docker/naavre-jupyter.Dockerfile
 ```
+
+
+## Build and Run Containers Locally
+
+### Jupyter Lab
+
+Set the Dockerfile to the `naavre-jupyter.Dockerfile`:
+
+```bash
+dockerfile=./docker/naavre-jupyter.Dockerfile
+```
+
+Set the conda environment file to the flavor's `environment.yaml`. For example for building the phytoplankton flavor:
+
+```bash
+CONDA_ENV_FILE=./flavors/phytoplankton/environment.yaml
+```
+
+Set the NAAVRE_VERSION to the desired version of the NaaVRE base image. For example for building using the latest version:
+
+
+```bash
+NAAVRE_VERSION=latest
+```
+
+Run the build command:
+
+```bash
+docker build -t naavre-jupyter-phytoplankton -f $dockerfile --build-arg CONDA_ENV_FILE=$CONDA_ENV_FILE --build-arg NAAVRE_VERSION=$NAAVRE_VERSION .
+```
+
+To run the container:
+
+```bash
+docker run -it -p 8888:8888 --env-file ~/Downloads/notbooks/docker_VARS naavre-jupyter-phytoplankton /bin/bash -c "source /venv/bin/activate && /tmp/init_script.sh && jupyter lab --debug --watch --NotebookApp.token='' --NotebookApp.ip='0.0.0.0' --NotebookApp.allow_origin='*' --collaborative"
+```
