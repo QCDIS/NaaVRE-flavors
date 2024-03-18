@@ -19,10 +19,11 @@ dependencies:
   - matplotlib
   - numpy
   - pdal
+  - pip
   - plyfile
   - pyshp
   - python-pdal
-  - python>=3.11
+  - python>=3.8
   - scipy
   - sentinelhub
   - setuptools
