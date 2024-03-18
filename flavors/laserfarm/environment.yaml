@@ -9,6 +9,7 @@ dependencies:
   - distro
   - gcc=12.1.0
   - gdal=3.5.0
+  - git
   - html5lib
   - ipykernel
   - Jinja2
