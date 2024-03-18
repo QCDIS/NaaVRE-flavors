@@ -12,3 +12,4 @@ dependencies:
   - r-vegan
   - r-fields
   - r-dendextend
+  - jupyterlab-spreadsheet-editor
