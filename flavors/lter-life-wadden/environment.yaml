@@ -1,4 +1,4 @@
-name: lter-life-wadden-py
+name: lter-life-wadden
 channels:
   - conda-forge
 dependencies:
