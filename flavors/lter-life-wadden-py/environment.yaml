@@ -1,7 +1,0 @@
-name: lter-life-wadden-py
-channels:
-  - conda-forge
-dependencies:
-  - ipykernel
-  - minio
-  - webdavclient3
