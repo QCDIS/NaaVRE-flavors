@@ -1,0 +1,35 @@
+name: biotope
+channels:
+  - conda-forge
+dependencies:
+  - r-irkernel
+  - r-jsonlite
+  - r-optparse
+  - r-devtools
+  - r=4.1.0
+  - python=3.10
+  - ipykernel
+  - pip
+  - openssl
+  - curl
+  - wget
+  - cmake
+  - r-shiny
+  - r-knitr
+  - r-devtools
+  - r-optparse
+  - r-tidyverse
+  - r-here
+  - r-rgbif=3.6.0
+  - r-lubridate
+  - r-base
+  - r-glue
+  - r-RSQLite
+  - r-sp
+  - r-data.table
+  - zip
+  - unzip
+  - pandas
+  - gdal
+  - pyproj
+  - shapely
