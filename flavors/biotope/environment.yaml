@@ -6,7 +6,7 @@ dependencies:
   - r-jsonlite
   - r-optparse
   - r-devtools
-  - r=4.1.0
+  - r>=4.1
   - python=3.10
   - ipykernel
   - pip
@@ -20,13 +20,14 @@ dependencies:
   - r-optparse
   - r-tidyverse
   - r-here
-  - r-rgbif=3.6.0
+  - r-rgbif>=3.6.0
   - r-lubridate
   - r-base
   - r-glue
   - r-RSQLite
-  - r-sp
+  - r-sp>=2.1-3
   - r-data.table
+  - r-zip
   - zip
   - unzip
   - pandas
