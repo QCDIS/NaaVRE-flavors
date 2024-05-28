@@ -34,3 +34,4 @@ dependencies:
   - gdal
   - pyproj
   - shapely
+  - r-sf
