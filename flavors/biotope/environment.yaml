@@ -35,3 +35,4 @@ dependencies:
   - pyproj
   - shapely
   - r-sf
+  - git

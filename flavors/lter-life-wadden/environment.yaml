@@ -14,3 +14,4 @@ dependencies:
   - r-sf
   - r-ncdf4
   - r-tidyverse
+  - git

@@ -13,3 +13,4 @@ dependencies:
   - r-fields
   - r-dendextend
   - jupyterlab-spreadsheet-editor
+  - git

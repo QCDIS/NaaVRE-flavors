@@ -11,3 +11,4 @@ dependencies:
   - r-rcpp
   - r-rcppeigen
   - r-ggplot2
+  - git
