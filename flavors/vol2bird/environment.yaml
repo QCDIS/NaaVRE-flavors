@@ -8,3 +8,4 @@ dependencies:
   - ipykernel
   - minio
   - webdavclient3
+  - git

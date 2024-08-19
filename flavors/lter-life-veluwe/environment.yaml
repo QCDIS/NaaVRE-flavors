@@ -81,3 +81,4 @@ dependencies:
   - r-wikitaxa
   - r-phangorn
   - r-conditionz
+  - git
