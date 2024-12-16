@@ -1,0 +1,17 @@
+name: pclake
+channels:
+   - conda-forge
+dependencies:
+  - r-irkernel
+  - r-jsonlite
+  - r-optparse
+  - git
+  - r-aws.s3
+  - r-desolve
+  - r-rjava
+  - r-reshape2
+  - r-ggplot2
+  - r-xlconnect
+  - r-readxl
+  - r-plyr
+  - r-tidyr
