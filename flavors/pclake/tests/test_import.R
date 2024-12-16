@@ -1,4 +1,3 @@
-library(irkernel)
 library(jsonlite)
 library(optparse)
 library(aws.s3)
