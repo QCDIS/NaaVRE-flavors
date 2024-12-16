@@ -19,7 +19,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
 RUN conda install -c conda-forge mamba conda-merge conda-pack
-RUN conda install -c bioconda bioconductor-rhdf5lib
+RUN conda install -c bioconda -c conda-forge bioconductor-rhdf5lib
 
 RUN ls /opt/radar/vol2bird/bin
 
