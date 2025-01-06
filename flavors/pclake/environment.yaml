@@ -15,3 +15,5 @@ dependencies:
   - r-readxl
   - r-plyr
   - r-tidyr
+  - r-devtools
+  - r-usethis
