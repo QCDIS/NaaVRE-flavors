@@ -14,3 +14,4 @@ dependencies:
   - proj
   - gsl
   - r-terra
+  - r-rgdal
