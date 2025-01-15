@@ -12,14 +12,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install miniconda
-ENV CONDA_DIR /opt/conda
+ENV CONDA_DIR=/opt/conda
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
      /bin/bash ~/miniconda.sh -b -p /opt/conda
 
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
 RUN conda install -c conda-forge mamba conda-merge conda-pack
-RUN conda install -c bioconda bioconductor-rhdf5lib
 
 RUN ls /opt/radar/vol2bird/bin
 
@@ -29,4 +28,4 @@ RUN mv KNMI_vol_h5_to_ODIM_h5 /opt/radar/vol2bird/bin
 
 RUN apt autoclean -y && apt autoremove -y
 
-CMD vol2bird
+CMD ["sh","-c","vol2bird"]

@@ -8,4 +8,9 @@ dependencies:
   - ipykernel
   - minio
   - webdavclient3
+  - r-devtools
   - git
+  - hdf5
+  - proj
+  - gsl
+  - r-terra
