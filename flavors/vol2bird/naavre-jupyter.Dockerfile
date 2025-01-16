@@ -20,9 +20,19 @@ RUN rm /test_vol2bird.sh
 RUN rm version KNMI_vol_h5_to_ODIM_h5_out
 CMD vol2bird
 
+
+FROM ubuntu:22.04 AS biorad
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt update && apt upgrade && apt install -y libhdf5-dev libproj-dev gsl-bin libgsl-dev r-base-dev libudunits2-dev libgdal-dev gdal-bin r-bioc-rhdf5
+RUN R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
+RUN R -e "library('bioRad')"
+
 FROM qcdis/n-a-a-vre:${NAAVRE_VERSION}
 
 ARG CONDA_ENV_FILE
+
 
 COPY ${CONDA_ENV_FILE} environment.yaml
 RUN mamba env create -f environment.yaml
@@ -32,4 +42,4 @@ COPY --from=vol2bird /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
 ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/radar/lib:/opt/radar/rave/lib:/opt/radar/rsl/lib:/opt/radar/vol2bird/lib:/usr/lib/x86_64-linux-gnu
 ENV PATH=${PATH}:/opt/radar/vol2bird/bin:/opt/radar/rsl/bin
 
-
+COPY --from=biorad /usr/local/lib/R/site-library /venv/lib/R/library

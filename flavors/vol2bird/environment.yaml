@@ -1,17 +1,13 @@
 name: vol2bird
 channels:
   - conda-forge
-  - bioconda
 dependencies:
-  - bioconductor-rhdf5lib
   - h5py
   - ipykernel
   - minio
   - webdavclient3
-  - r-devtools
   - git
-  - hdf5
-  - proj
-  - gsl
-  - r-terra
-  - r-rgdal
+  - glib
+  - libgcc
+  - libstdcxx-ng
+  - gcc=12.1.0
