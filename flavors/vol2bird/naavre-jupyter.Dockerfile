@@ -27,6 +27,7 @@ ARG CONDA_ENV_FILE
 COPY ${CONDA_ENV_FILE} environment.yaml
 RUN mamba env create -f environment.yaml
 
+# RNU conda activate vol2bird
 # RUN R -e "install.packages('suntools', repos='https://cran.r-project.org')"
 # RUN R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
 # RUN R -e "library('bioRad')"
