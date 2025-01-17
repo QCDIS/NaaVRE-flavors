@@ -29,7 +29,7 @@ myflavor
 Set the Dockerfile to the `naavre-jupyter.Dockerfile`:
 
 ```bash
-dockerfile=./docker/naavre-jupyter.Dockerfile
+dockerfile=./docker/naavre-jupyter.bioRad.Dockerfile
 ```
 
 Set the conda environment file to the flavor's `environment.yaml`. For example for building the phytoplankton flavor:

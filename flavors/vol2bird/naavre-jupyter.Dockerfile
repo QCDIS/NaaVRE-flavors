@@ -28,6 +28,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt upgrade && apt install -y libhdf5-dev libproj-dev gsl-bin libgsl-dev r-base-dev libudunits2-dev libgdal-dev gdal-bin r-bioc-rhdf5
 RUN R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
 RUN R -e "library('bioRad')"
+RUN R -e "install.packages('generics', repos='https://cran.r-project.org')"
+
 
 FROM qcdis/n-a-a-vre:${NAAVRE_VERSION}
 
@@ -43,3 +45,6 @@ ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/radar/lib:/opt/radar/rave/lib:/opt/r
 ENV PATH=${PATH}:/opt/radar/vol2bird/bin:/opt/radar/rsl/bin
 
 COPY --from=biorad /usr/local/lib/R/site-library /venv/lib/R/library
+
+RUN ldd --version
+

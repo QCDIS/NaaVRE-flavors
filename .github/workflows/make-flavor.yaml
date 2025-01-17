@@ -46,7 +46,7 @@ jobs:
     uses: ./.github/workflows/build-image.yaml
     needs: configure-workflow
     with:
-      dockerfile: naavre-cell-build.Dockerfile
+      dockerfile: naavre-cell-build.bioRad.Dockerfile
       flavor_dir: './flavors/${{ inputs.flavor_name }}'
       image_name: naavre-cell-build-${{ inputs.flavor_name }}
       image_repo: ${{ inputs.image_repo }}
@@ -57,7 +57,7 @@ jobs:
     uses: ./.github/workflows/build-image.yaml
     needs: configure-workflow
     with:
-      dockerfile: naavre-cell-runtime.Dockerfile
+      dockerfile: naavre-cell-runtime.bioRad.Dockerfile
       flavor_dir: './flavors/${{ inputs.flavor_name }}'
       image_name: naavre-cell-runtime-${{ inputs.flavor_name }}
       image_repo: ${{ inputs.image_repo }}
@@ -68,7 +68,7 @@ jobs:
     uses: ./.github/workflows/build-image.yaml
     needs: configure-workflow
     with:
-      dockerfile: naavre-jupyter.Dockerfile
+      dockerfile: naavre-jupyter.bioRad.Dockerfile
       flavor_dir: './flavors/${{ inputs.flavor_name }}'
       image_name: naavre-jupyter-${{ inputs.flavor_name }}
       image_repo: ${{ inputs.image_repo }}

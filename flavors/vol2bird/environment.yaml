@@ -7,7 +7,3 @@ dependencies:
   - minio
   - webdavclient3
   - git
-  - glib
-  - libgcc
-  - libstdcxx-ng
-  - gcc=12.1.0
