@@ -32,6 +32,8 @@ RUN mamba env create -f environment.yaml
 # RUN R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
 # RUN R -e "library('bioRad')"
 
+RUN /opt/conda/envs/vol2bird/bin/R -e "install.packages('suntools', repos='https://cran.r-project.org')"
+RUN /opt/conda/envs/vol2bird/bin/R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
 
 COPY --from=vol2bird /opt/radar/ /opt/radar/
 COPY --from=vol2bird /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
