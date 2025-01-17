@@ -57,7 +57,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - id: find-dockerfile
-        name: Find bioRad.Dockerfile
+        name: Find Dockerfile
         run: |
           # Choose the {inputs.flavor_dir}/{inputs.dockerfile} if it exists,
           # otherwise fall-back to docker/{inputs.dockerfile}
