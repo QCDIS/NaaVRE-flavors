@@ -68,3 +68,12 @@ dependencies:
   - r-sf
   - r-wk
   - r-udunits2
+  - r-irkernel
+  - r-renv
+  - r-lobstr
+  - r-rlang
+  - r-optparse
+  - r-rcpp
+  - r-rcppeigen
+  - nano
+  - vim
