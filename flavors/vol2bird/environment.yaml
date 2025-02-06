@@ -2,6 +2,7 @@ name: vol2bird
 channels:
   - conda-forge
   - bioconda
+  - pip
 dependencies:
   - h5py
   - ipykernel
@@ -78,4 +79,5 @@ dependencies:
   - nano
   - vim
   - pandas
-  - SecretsProvider
+  - pip:
+    - SecretsProvider
