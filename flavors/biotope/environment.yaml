@@ -31,7 +31,7 @@ dependencies:
   - zip
   - unzip
   - pandas
-  - gdal
+  - gdal=3.5.0
   - pyproj
   - shapely
   - r-sf
