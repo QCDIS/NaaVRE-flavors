@@ -42,6 +42,6 @@ dependencies:
   - r-rcppeigen
   - r-ggplot2
   - git
-  - r-base=4.3.3
+  - r-base
   - r-irkernel
   - ipywidgets
