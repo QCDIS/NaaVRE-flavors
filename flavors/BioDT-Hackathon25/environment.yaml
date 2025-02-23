@@ -1,0 +1,47 @@
+name: biodt-hackathon25
+channels:
+  - conda-forge
+dependencies:
+  - cxx-compiler
+  - distro
+  - gcc=12.1.0
+  - gdal=3.5.0
+  - git
+  - html5lib
+  - ipykernel
+  - Jinja2
+  - laspy
+  - lazrs-python
+  - libgcc
+  - libstdcxx-ng
+  - matplotlib
+  - numpy
+  - pdal
+  - pip
+  - plyfile
+  - pyshp
+  - python-pdal
+  - python>=3.8
+  - scipy
+  - sentinelhub
+  - setuptools
+  - shapely
+  - webdavclient3
+  - wradlib
+  - rioxarray
+  - pandas
+  - matplotlib-scalebar
+  - nglview
+  - r-renv
+  - r-jsonlite
+  - r-lobstr
+  - r-rlang
+  - r-purrr
+  - r-optparse
+  - r-rcpp
+  - r-rcppeigen
+  - r-ggplot2
+  - git
+  - r-base=4.3.3
+  - r-irkernel
+  - ipywidgets
