@@ -16,7 +16,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y python3-pip python3.8-dev software-properties-common wget && \
     add-apt-repository -y ppa:ubuntugis/ppa && \
     apt-get update && \
-    apt-get install -y gdal-bin=3.3.2+dfsg-2~focal2 libgdal-dev=3.3.2+dfsg-2~focal2 cmake libglu1-mesa-dev && \
+    apt-get install -y gdal-bin libgdal-dev cmake libglu1-mesa-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
