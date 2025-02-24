@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y python3-pip python3.8-dev software-properties-common wget cmake libglu1-mesa-dev && \
     add-apt-repository -y ppa:ubuntugis/ppa && \
     apt-get update && \
-    apt-get install -y gdal-bin=3.6.4+dfsg-1~jammy0 libgdal-dev=3.6.4+dfsg-1~jammy0 && \
+    apt-get install -y gdal-bin libgdal-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
