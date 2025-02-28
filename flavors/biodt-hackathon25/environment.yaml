@@ -21,7 +21,7 @@ dependencies:
   - plyfile
   - pyshp
   - python-pdal
-  - python>=3.9
+  - python>=3.8
   - scipy
   - sentinelhub
   - setuptools
@@ -48,6 +48,6 @@ dependencies:
   - minio-client
   - minio
   - s3fs
+  - soilgrids
   - pip:
-      - git+https://github.com/BioDT/general-soilgrids-soil-data.git@83ce7f1
       - git+https://github.com/trossi/rdata.git@e50eb9c
