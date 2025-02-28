@@ -21,7 +21,7 @@ dependencies:
   - plyfile
   - pyshp
   - python-pdal
-  - python>=3.8
+  - python>=3.9
   - scipy
   - sentinelhub
   - setuptools
