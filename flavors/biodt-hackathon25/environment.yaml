@@ -49,5 +49,4 @@ dependencies:
   - minio
   - s3fs
   - soilgrids
-  - pip:
-      - git+https://github.com/trossi/rdata.git@e50eb9c
+  - rdata
