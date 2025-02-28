@@ -45,3 +45,8 @@ dependencies:
   - r-base
   - r-irkernel
   - ipywidgets
+  - minio-client
+  - minio
+  - s3fs
+  - soilgrids
+  - rdata
