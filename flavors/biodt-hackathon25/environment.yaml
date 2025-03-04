@@ -36,7 +36,6 @@ dependencies:
   - minio-client
   - minio
   - s3fs
-  - pyproj
 #  - soilgrids
 #  - rdata
   - pip:
