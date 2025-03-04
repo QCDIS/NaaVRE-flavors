@@ -21,12 +21,12 @@ dependencies:
   - plyfile
   - pyshp
   - python-pdal
-  - python>=3.8
+  - python>=3.10
   - scipy
   - sentinelhub
   - setuptools
   - shapely
-  - webdavclient3
+  - webdavclient3c
   - wradlib
   - rioxarray
   - pandas
@@ -48,5 +48,7 @@ dependencies:
   - minio-client
   - minio
   - s3fs
-  - soilgrids
+#  - soilgrids
   - rdata
+  - pip:
+    - git+https://github.com/BioDT/general-soilgrids-soil-data.git@83ce7f1
