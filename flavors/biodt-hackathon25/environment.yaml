@@ -2,36 +2,26 @@ name: biodt-hackathon25
 channels:
   - conda-forge
 dependencies:
-  - cxx-compiler
-  - distro
-  - gcc=12.1.0
-  - gdal=3.5.0
-  - git
-  - html5lib
+  - jupyter
+  - jupyterlab
+  - nbclassic
+  - python=3.12
   - ipykernel
-  - Jinja2
-  - laspy
-  - lazrs-python
-  - libgcc
-  - libstdcxx-ng
-  - matplotlib
-  - numpy
-  - pdal
-  - pip
-  - plyfile
-  - pyshp
-  - python-pdal
-  - python>=3.10
   - scipy
-  - sentinelhub
-  - setuptools
-  - shapely
-  - webdavclient3c
-  - wradlib
+  - nglview
+  - r-base=4.3.3
+  - r-irkernel
   - rioxarray
+  - matplotlib
   - pandas
   - matplotlib-scalebar
-  - nglview
+  - numpy
+  - ipywidgets
+  - ipympl
+  - r-terra
+  - r-raster
+  - pip
+  - git
   - r-renv
   - r-jsonlite
   - r-lobstr
@@ -42,13 +32,13 @@ dependencies:
   - r-rcppeigen
   - r-ggplot2
   - git
-  - r-base
-  - r-irkernel
   - ipywidgets
   - minio-client
   - minio
   - s3fs
+  - pyproj
 #  - soilgrids
-  - rdata
+#  - rdata
   - pip:
     - git+https://github.com/BioDT/general-soilgrids-soil-data.git@83ce7f1
+    - git+https://github.com/trossi/rdata.git@e50eb9c
