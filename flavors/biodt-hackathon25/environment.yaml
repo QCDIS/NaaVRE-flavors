@@ -24,11 +24,11 @@ dependencies:
   - minio-client
   - minio
   - s3fs
-  - soilgrids
+#  - soilgrids
   - pyproj
   - rdata
   - rasterio
   - requests
-#  - pip:
-#    - git+https://github.com/BioDT/general-soilgrids-soil-data.git@83ce7f1
+  - pip:
+    - git+https://github.com/QCDIS/general-soilgrids-soil-data.git
 #    - git+https://github.com/trossi/rdata.git@e50eb9c
