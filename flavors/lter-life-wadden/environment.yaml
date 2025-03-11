@@ -28,6 +28,7 @@ dependencies:
   - numpy
   - pyhdf
   - gdal
+  - libgdal-jp2openjpeg
   - netcdf4
   - h5py
   - pygrib
