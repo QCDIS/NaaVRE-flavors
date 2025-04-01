@@ -1,0 +1,13 @@
+name: veluwe-wolf-deer-tree
+channels:
+  - conda-forge
+dependencies:
+  - r-irkernel
+  - r-ggmap
+  - r-piecewiseSEM
+  - r-lubridate
+  - r-stringr
+  - r-dplyr
+  - r-tidyr
+  - r-lme4
+  - git
