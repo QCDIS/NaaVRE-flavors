@@ -1,4 +1,4 @@
-# NaaVRE vol2bird flavor
+# NaaVRE ravl flavor
 
 docker to run with python and vol2bird. 
 

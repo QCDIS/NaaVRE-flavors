@@ -1,4 +1,4 @@
-name: vol2bird
+name: ravl
 channels:
   - conda-forge
   - bioconda
