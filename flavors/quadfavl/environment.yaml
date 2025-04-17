@@ -3,6 +3,8 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
+  - gsl
+  - proj
   - bioconductor-rhdf5
   - r-irkernel
   - r-devtools
@@ -25,6 +27,11 @@ dependencies:
   - r-tidyselect
   - r-viridis
   - r-viridisLite
+  - r-Rcpp
+  - r-rcppGSL
+  - r-pkgbuild
+  - r-withr
+  - r-raveio
   - python=3.10
   - ipykernel
   - pip
