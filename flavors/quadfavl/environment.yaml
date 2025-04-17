@@ -1,0 +1,33 @@
+name: quadfavl
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconductor-rhdf5
+  - r-irkernel
+  - r-devtools
+  - r>=4.4
+  - r-assertthat
+  - r-curl
+  - r-dplyr
+  - r-fields
+  - r-ggplot2
+  - r-glue
+  - r-jsonlite
+  - r-lubridate
+  - r-raster
+  - r-readr
+  - r-rlang
+  - r-sf
+  - r-sp
+  - r-stringr
+  - r-tidyr
+  - r-tidyselect
+  - r-viridis
+  - r-viridisLite
+  - python=3.10
+  - ipykernel
+  - pip
+  - openssl
+  - curl
+  - wget
