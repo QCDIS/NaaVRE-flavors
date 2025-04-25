@@ -30,6 +30,7 @@ RUN mamba env create -f environment.yaml
 RUN /opt/conda/envs/ravl/bin/R -e "install.packages('suntools', repos='https://cran.r-project.org')"
 RUN /opt/conda/envs/ravl/bin/R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
 RUN /opt/conda/envs/ravl/bin/R -e "library('bioRad')"
+RUN /opt/conda/envs/ravl/bin/R -e "devtools::install_github('aloftdata/getRad')"
 
 COPY --from=vol2bird /opt/radar/ /opt/radar/
 COPY --from=vol2bird /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
