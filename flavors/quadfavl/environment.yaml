@@ -144,3 +144,10 @@ dependencies:
   - r-devtools
   - r-codetools
   - r-keyring
+  - r-ps
+  - r-callr
+  - r-desc
+  - r-processx
+  - r-pkgbuild
+  - r-rcpp
+  - r-RcppGSL

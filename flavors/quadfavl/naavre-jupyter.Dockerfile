@@ -10,16 +10,6 @@ RUN apt-get update && \
     apt autoclean -y && \
     apt autoremove -y
 
-COPY flavors/ravl/KNMI_vol_h5_to_ODIM_h5.c .
-RUN gcc -Wall -L/usr/lib/x86_64-linux-gnu/hdf5/serial/ -I/usr/include/hdf5/serial KNMI_vol_h5_to_ODIM_h5.c -lhdf5 -lhdf5_hl -o KNMI_vol_h5_to_ODIM_h5
-RUN mv KNMI_vol_h5_to_ODIM_h5 /opt/radar/vol2bird/bin
-
-COPY flavors/ravl/tests/tests.sh /test_ravl.sh
-RUN bash /test_ravl.sh
-RUN rm /test_ravl.sh
-RUN rm version KNMI_vol_h5_to_ODIM_h5_out
-CMD vol2bird
-
 FROM qcdis/n-a-a-vre:${NAAVRE_VERSION}
 
 ARG CONDA_ENV_FILE
@@ -27,10 +17,11 @@ ARG CONDA_ENV_FILE
 COPY ${CONDA_ENV_FILE} environment.yaml
 RUN mamba env create -f environment.yaml
 
-RUN /opt/conda/envs/ravl/bin/R -e "install.packages('suntools', repos='https://cran.r-project.org')"
-RUN /opt/conda/envs/ravl/bin/R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
-RUN /opt/conda/envs/ravl/bin/R -e "library('bioRad')"
-RUN /opt/conda/envs/ravl/bin/R -e "devtools::install_github('aloftdata/getRad')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('suntools', repos='https://cran.r-project.org')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "library('bioRad')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "devtools::install_github('aloftdata/getRad')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('vol2birdR', repos='https://cran.r-project.org')"
 
 COPY --from=vol2bird /opt/radar/ /opt/radar/
 COPY --from=vol2bird /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
