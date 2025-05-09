@@ -1,4 +1,4 @@
-name: ravl
+name: quadfavl
 channels:
   - conda-forge
   - bioconda
