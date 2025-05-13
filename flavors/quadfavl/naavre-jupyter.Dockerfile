@@ -8,3 +8,9 @@ COPY ${CONDA_ENV_FILE} environment.yaml
 RUN mamba env create -f environment.yaml
 
 RUN conda run -n quadfavl bash -c "export PKG_LIBS=\""'$(pkg-config --libs proj) $(gsl-config --libs)'"\"; Rscript -e \"install.packages(\\\"vol2birdR\\\", repos=\\\"https://cran.r-project.org\\\"); library(\\\"vol2birdR\\\")\""
+RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('suntools', repos='https://cran.r-project.org')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "library('suntools')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('lutz', repos='https://cran.r-project.org')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "library('lutz')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "library('bioRad')"

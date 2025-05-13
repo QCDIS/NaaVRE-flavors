@@ -1,6 +1,7 @@
 name: quadfavl
 channels:
   - conda-forge
+  - bioconda
 dependencies:
   - ipykernel
   - r-irkernel
@@ -12,3 +13,59 @@ dependencies:
   - zlib
   - liblzma
   - r-rcppgsl
+  - bioconductor-rhdf5
+  - r-bit
+  - r-prettyunits
+  - r-proxy
+  - r-pkgconfig
+  - r-dotCall64
+  - r-nlme
+  - r-matrix
+  - r-farver
+  - r-labeling
+  - r-rcolorbrewer
+  - r-bit64
+  - r-progress
+  - r-e1071
+  - r-class
+  - r-kernsmooth
+  - r-wk
+  - r-generics
+  - r-magrittr
+  - r-tibble
+  - r-spam
+  - r-maps
+  - r-gtable
+  - r-isoband
+  - r-MASS
+  - r-mgcv
+  - r-scales
+  - r-timechange
+  - r-terra
+  - r-clipr
+  - r-hms
+  - r-vroom
+  - r-cpp11
+  - r-tzdb
+  - r-classInt
+  - r-DBI
+  - r-s2
+  - r-units
+  - r-lattice
+  - r-stringi
+  - r-purrr
+  - r-gridExtra
+  - r-curl
+  - r-dplyr
+  - r-fields
+  - r-ggplot2
+  - r-lubridate
+  - r-raster
+  - r-readr
+  - r-sf
+  - r-sp
+  - r-stringr
+  - r-tidyr
+  - r-tidyselect
+  - r-viridis
+  - r-viridisLite
