@@ -69,3 +69,4 @@ dependencies:
   - r-tidyselect
   - r-viridis
   - r-viridisLite
+  - r-devtools

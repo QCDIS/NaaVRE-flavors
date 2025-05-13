@@ -14,3 +14,5 @@ RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('lutz', repos='https://c
 RUN /opt/conda/envs/quadfavl/bin/R -e "library('lutz')"
 RUN /opt/conda/envs/quadfavl/bin/R -e "install.packages('bioRad', repos='https://cran.r-project.org')"
 RUN /opt/conda/envs/quadfavl/bin/R -e "library('bioRad')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "devtools::install_github('aloftdata/getRad')"
+RUN /opt/conda/envs/quadfavl/bin/R -e "library('getRad')"
