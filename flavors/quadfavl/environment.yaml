@@ -12,6 +12,8 @@ dependencies:
   - bzip2
   - zlib
   - liblzma
+  - vim
+  - nano
   - r-rcppgsl
   - bioconductor-rhdf5
   - r-bit
