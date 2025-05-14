@@ -115,6 +115,7 @@ docker run -it -p 8888:8888 --env-file /path/to/NaaVRE/docker/docker_VARS naavre
 Example for the vol2bird flavor:
 
 ```shell
+./build-local.sh vol2bird -t cell-build, cell-runtime, cell-test
 docker run -v ./flavors/vol2bird/tests/:/tests/ naavre-cell-test-vol2bird:local /bin/bash /tests/tests.sh
 echo $?
 ```
