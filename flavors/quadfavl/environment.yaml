@@ -14,6 +14,16 @@ dependencies:
   - liblzma
   - vim
   - nano
+  - git
+  - r-renv
+  - r-jsonlite
+  - r-lobstr
+  - r-rlang
+  - r-purrr
+  - r-optparse
+  - r-rcpp
+  - r-rcppeigen
+  - r-ggplot2
   - r-rcppgsl
   - bioconductor-rhdf5
   - r-bit
@@ -55,12 +65,10 @@ dependencies:
   - r-units
   - r-lattice
   - r-stringi
-  - r-purrr
   - r-gridExtra
   - r-curl
   - r-dplyr
   - r-fields
-  - r-ggplot2
   - r-lubridate
   - r-raster
   - r-readr
@@ -72,4 +80,3 @@ dependencies:
   - r-viridis
   - r-viridisLite
   - r-devtools
-  - r-optparse
