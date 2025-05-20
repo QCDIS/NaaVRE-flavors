@@ -532,3 +532,6 @@ COPY ${CONDA_ENV_FILE} environment.yaml
 RUN mamba env create -f environment.yaml
 
 COPY --from=landis-ii /bin/LANDIS_Linux /bin/LANDIS_Linux
+COPY --from=landis-ii /bin/.dotnet /bin/.dotnet
+ENV PATH=${PATH}:/bin/.dotnet
+ENV LANDIS_CONSOLE="/bin/LANDIS_Linux/Core-Model-v8-LINUX/build/Release/Landis.Console.dll"
