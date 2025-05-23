@@ -535,3 +535,13 @@ COPY --from=landis-ii /bin/LANDIS_Linux /bin/LANDIS_Linux
 COPY --from=landis-ii /bin/.dotnet /bin/.dotnet
 ENV PATH=${PATH}:/bin/.dotnet
 ENV LANDIS_CONSOLE="/bin/LANDIS_Linux/Core-Model-v8-LINUX/build/Release/Landis.Console.dll"
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y libjpeg62  libpng16-16 && \
+    apt autoclean -y && \
+    apt autoremove -y
+
+USER $NB_USER
+WORKDIR /home/$NB_USER
