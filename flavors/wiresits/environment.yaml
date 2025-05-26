@@ -1,0 +1,45 @@
+name: wiresits
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.9
+  - pip
+  - r-lobstr
+  - r-rlang
+  - r-purrr
+  - r-optparse
+  - r-rcpp
+  - r-rcppeigen
+  - r-ggplot2
+  - git
+  - r-geodata
+  - r-ggcorrplot
+  - r-ggspatial
+  - r-irr
+  - r-mlr3measures
+  - r-mltools
+  - r-pals
+  - r-patchwork
+  - r-pdp
+  - r-progress
+  - r-psych
+  - r-ptw
+  - r-raster
+  - r-rgdal
+  - r-rgeos
+  - r-rnaturalearth
+  - r-scales
+  - r-sf
+  - r-sp
+  - r-terra
+  - r-tidyverse
+  - r-zoo
+  - r-zyp
+  - r-gdalutils
+  - r-hmisc
+  - r-metrics
+  - r-modistsp
+  - r-randomforest
+  - r-rastervis
+  - r-rcolorbrewer
