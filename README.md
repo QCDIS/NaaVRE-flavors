@@ -122,6 +122,12 @@ echo $?
 
 Successful tests should output `0`.
 
+#### Terminal
+To run the flavor in a terminal:
+```shell
+docker run -it naavre-jupyter-[Flavor name]:local /bin/bash
+```
+
 > [!TIP]
 > NaaVRE images are large and can quickly fill up your machine's storage.
 > If needed, free-up space with `docker image prune [-a]` ([documentation](https://docs.docker.com/reference/cli/docker/image/prune/)).
