@@ -22,6 +22,7 @@ dependencies:
   - libexpat
   - udunits2
   - bioconductor-rhdf5
+  - liblzma-devel
   - r-labeling
   - r-bit64
   - r-progress
@@ -75,5 +76,7 @@ dependencies:
   - r-optparse
   - r-rcpp
   - r-rcppeigen
+  - r-xml2
+  - r-aws.s3
   - nano
   - vim
