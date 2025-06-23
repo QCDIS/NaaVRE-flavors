@@ -78,5 +78,12 @@ dependencies:
   - r-rcppeigen
   - r-xml2
   - r-aws.s3
+  - r-plotly
+  - r-rosm
+  - r-ggspatial
+  - r-prettymapr
+  - r-rjson
+  - r-jpeg
+  - r-png
   - nano
   - vim
