@@ -86,5 +86,8 @@ dependencies:
   - r-jpeg
   - r-png
   - r-codetools
+  - r-SecretsProvider
   - nano
   - vim
+  - pip:
+    - SecretsProvider
