@@ -85,5 +85,6 @@ dependencies:
   - r-rjson
   - r-jpeg
   - r-png
+  - r-codetools
   - nano
   - vim
