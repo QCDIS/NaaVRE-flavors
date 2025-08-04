@@ -19,6 +19,7 @@ dependencies:
   - r-tidyverse
   - r-devtools
   - git
+  - make
   # Acolite
   # (Acolite doesn't run on Python 3.12 yet)
   - python<=3.11
