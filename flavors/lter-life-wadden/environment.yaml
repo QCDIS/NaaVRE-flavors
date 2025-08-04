@@ -36,3 +36,24 @@ dependencies:
   - matplotlib
   - scikit-image
   - pyproj
+  # Dependencies for tools4watlas
+  - r-litedown
+  - r-jpeg
+  - r-png
+  - r-markdown
+  - r-gridExtra
+  - r-terra
+  - r-plogr
+  - r-gridtext
+  - r-abind
+  - r-rosm
+  - r-zoo
+  - r-viridis
+  - r::r-tidyterra
+  - r-RSQLite
+  - r-RMySQL
+  - r-patchwork
+  - r-ggtext
+  - r-ggspatial
+  - r-ggrepel
+  - r-ggnewscale
