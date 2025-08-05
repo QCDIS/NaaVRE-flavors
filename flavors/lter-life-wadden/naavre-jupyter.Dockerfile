@@ -10,9 +10,6 @@ RUN /opt/conda/envs/lter-life-wadden/bin/git clone --depth 1 --branch 20250114.0
     cp ./acolite/acolite -r "$site_package_dir" && \
     cp ./acolite/config -r "$site_package_dir" && \
     cp ./acolite/data -r "$site_package_dir"
-RUN /opt/conda/envs/lter-life-wadden/bin/R -e "devtools::install_github('krietsch/tools4watlas@952cb1038c862075bb2df2dfc061e2df87b04340', dependencies = FALSE)"
-RUN /opt/conda/envs/lter-life-wadden/bin/R -e "library('tools4watlas')"
-RUN /opt/conda/envs/lter-life-wadden/bin/R -e "devtools::install_github('allertbijleveld/SIBES@24d3f06418a8aca77db4e7fbef66c45dc55873f8', dependencies = FALSE)"
-RUN /opt/conda/envs/lter-life-wadden/bin/R -e "library('SIBES')"
-RUN /opt/conda/envs/lter-life-wadden/bin/R -e "devtools::install_github('TempSED/TempSED@79ecf0e2f9473c3e5e35cf53bc87d15389f2e68c', depend = TRUE)"
-RUN /opt/conda/envs/lter-life-wadden/bin/R -e "require('TempSED')"
+
+COPY ./flavors/lter-life-wadden/install_packages.R .
+RUN conda run -n lter-life-wadden bash -c "Rscript install_packages.R"
